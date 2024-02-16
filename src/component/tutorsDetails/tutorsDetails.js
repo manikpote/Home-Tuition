@@ -1,85 +1,148 @@
-import React from "react";
-import './tutorsDetails.css'
-import Footer from "../footer/footer";
-import { Navigate, useNavigate } from "react-router-dom";
+// import React from "react";
+// import './tutorsDetails.css'
+// import Footer from "../footer/footer";
+// import { Navigate, useNavigate } from "react-router-dom";
+// import Dropdown from "../dropDown/dropDown";
+// import { data } from "../../data";
 
-function Tutors() {
-  const data = [
-    {
-      index: 0,
-      img: 'https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d7c36a24-90af-4eb7-a40e-6d402063c333/barry-pollard-200x200.jpg',
-      name: 'John',
-      gender: 'Male',
-      age: 25,
-      studyLevel: 'Bachelors',
-      experience: '3yrs',
-    },
-    {
-      index: 1,
-      img: 'https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d7c36a24-90af-4eb7-a40e-6d402063c333/barry-pollard-200x200.jpg',
-      name: 'Alice',
-      gender: 'Female',
-      age: 28,
-      studyLevel: 'Masters',
-      experience: '5yrs',
-    },
-    {
-      index: 2,
-      img: 'https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d7c36a24-90af-4eb7-a40e-6d402063c333/barry-pollard-200x200.jpg',
-      name: 'Bob',
-      gender: 'Male',
-      age: 22,
-      studyLevel: '+2',
-      experience: '2yrs',
-    },
-    {
-      index: 3,
-      img: 'https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d7c36a24-90af-4eb7-a40e-6d402063c333/barry-pollard-200x200.jpg',
-      name: 'Eva',
-      gender: 'Female',
-      age: 30,
-      studyLevel: 'SEE',
-      experience: '4yrs',
-    }
-  ];
-  const navigate = useNavigate();
-  const handleClick=()=>{
-    navigate('/detail');
-  }
+// function Tutors() {
+
+//   const navigate = useNavigate();
+//   const handleClick=()=>{
+//     navigate('/detail');
+//   }
+//   return (
+//     <div className="wrap">
+//       <div className="wrapper">
+//         {
+//           data.map((datas) => (
+//             <div className="personContainer"  key={datas.id}>
+//               <div className="mainDiv">
+//                 <div className="infoContainer" onClick={handleClick}  key={datas.id}>
+//                   <img className="personImage" src={datas.img} alt="Person" />
+//                   <div className="personInfo">
+//                     <p className="personName">{datas.name}</p>
+//                     <div className="personDetails">
+//                       {datas.gender},{datas.age}
+//                       <span>&#183;</span>
+//                       {datas.studyLevel}
+//                       <span>&#183;</span>
+//                       {datas.experience}
+//                     </div>
+//                   </div>
+//                   <button>ViewProfile</button>
+//                 </div>
+//               </div>
+//             </div>
+//           ))
+//         }
+//       </div>
+//       <Footer/>
+//       <Dropdown data={data}/>
+//     </div>
+//   )
+// }
+
+// export default Tutors;
+
+// AnotherComponent.js
+
+
+// import React, { useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
+
+// function AnotherComponent() {
+//   const { grade, subject } = useParams();
+//   console.log('Grade:', grade);
+//   console.log('Subject:', subject);
+
+
+//   // useEffect(() => {
+//   //   const urlParams = new URLSearchParams(window.location.search);
+//   //   const grade = urlParams.get('grade');
+//   //   const subject = urlParams.get('subject');
+
+
+//   //   if (grade === null || subject === null) {
+//   //     console.error("Grade or Subject not found in URL");
+//   //   } else {
+//   //     console.log('Grade:', grade);
+//   //     console.log('Subject:', subject);
+//   //   }
+//   // }, []);
+
+
+//   return (
+//     <>
+//       <div className="tutors-details">
+//         <h1>Tutors Details</h1>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default AnotherComponent;
+
+
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { data } from "../../data"
+import "./tutorsDetails.css"
+import Footer from '../footer/footer';
+import DropdownMenu from '../dropDown/dropdownMenu';
+
+function TutorsDetails() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const grade = searchParams.get('grade');
+  const subject = searchParams.get('subject');
+
+  const filteredData = data.filter((datas) => {
+    return datas.grades.includes(grade) && datas.field.includes(subject);
+  });
+
   return (
-    <div className="wrap">
-      <div className="wrapper">
-        {
-          data.map((datas) => (
-            <div className="personContainer">
-              <div className="mainDiv">
-                <div className="infoContainer" onClick={handleClick}>
-                  <img className="personImage" src={datas.img} alt="Person" />
-                  <div className="personInfo">
-                    <p className="personName">{datas.name}</p>
-                    {/* <div className="personInfo2">
-                    <p className="personDetails">{datas.gender}, {datas.age}<i>&#183;</i></p>
-                    <p className="personDetails"><i>&#183;</i>Qualification : {datas.studyLevel}</p>
-                    <p className="personDetails">Experience : {datas.experience}</p>
-                  </div> */}
-                    <div className="personDetails">
-                      {datas.gender},{datas.age}
-                      <span>&#183;</span>
-                      {datas.studyLevel}
-                      <span>&#183;</span>
-                      {datas.experience}
+    <>
+      <div className="wrap">
+
+        <div className="wrapper">
+          <div style={{
+            padding: '3em',
+          }}>
+            <DropdownMenu />
+          </div>
+          <div>
+            {
+              filteredData.length > 0 ? (
+                filteredData.map((datas) => (
+                  <div className="personContainer" key={datas.id}>
+                    <div className="mainDiv">
+                      <div className="infoContainer" key={datas.id}>
+                        <img className="personImage" src={datas.img} alt="Person" />
+                        <div className="personInfo">
+                          <p className="personName">{datas.name}</p>
+                          <div className="personDetails">
+                            {datas.gender},{datas.age}
+                            <span>&#183;</span>
+                            {datas.studyLevel}
+                            <span>&#183;</span>
+                            {datas.experience}
+                          </div>
+                        </div>
+                        <button>ViewProfile</button>
+                      </div>
                     </div>
                   </div>
-                  <button>ViewProfile</button>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-      <Footer/>
-    </div>
-  )
+                ))
+              ) : (<p>Oops, sorry, no result found.</p>)
+            }
+          </div>
+        </div>
+      </div >
+      <Footer />
+    </>
+
+  );
 }
 
-export default Tutors;
+export default TutorsDetails;
