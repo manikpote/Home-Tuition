@@ -8,7 +8,8 @@ export const data=[{
   "grades": "Grade 1-4",
   "gender": "Male",
   "studyLevel": "+2",
-  "experience": 1
+  "experience": 1,
+  "age":22,
 }, {
   "id": 2,
   "first_name": "Calla",

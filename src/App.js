@@ -7,6 +7,7 @@ import Home from './component/home';
 import AboutUs from './component/aboutUs/aboutUs';
 
 import TutorsDetails from './component/tutorsDetails/tutorsDetails';
+import TutorProfile from './component/viewProfile/viewProfile';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/login' element={<Login />} />
 
         <Route path="/search" element={<TutorsDetails />} />
+        <Route path='/tutor' element={<TutorProfile />} />
       </Routes>
     </div>
   );

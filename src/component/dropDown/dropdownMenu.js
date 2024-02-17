@@ -52,7 +52,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { data } from '../../data';
+// import { data } from '../../data';
 import { useNavigate } from 'react-router-dom';
 import './dropDown.css';
 
@@ -99,7 +99,6 @@ function DropdownMenu() {
     <>
       <div className="dropdown-background">
         <div>
-          {/* <p className="text-tutor">Search for a tutor!</p> */}
           <div className="options">
             <select onChange={handleGradeChange} value={grade}>
               <option>For Grade</option>
