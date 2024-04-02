@@ -43,10 +43,7 @@ function SignUp() {
               </p>
             </div>
           </section>
-          {/* <div>
-            <label>Name</label>
-            <input type="text" name="name" placeholder="Enter your name" />
-          </div> */}
+          
           <div className="input-container" id="input-container">
             <input
               type="text"
@@ -54,14 +51,10 @@ function SignUp() {
               id="input-field"
               className="input-field"
               placeholder="Name" 
-              // onChange={(e) => { setInputEmail(e.target.value) }}
             />
             <label className="input-label">Name</label>
           </div>
-          {/* <div>
-            <label>E-mail</label>
-            <input type="email" name="email" placeholder="Enter your E-mail" />
-          </div> */}
+          
           <div className="input-container" id="input-container">
             <input
               type="email"
@@ -69,14 +62,10 @@ function SignUp() {
               id="input-field"
               className="input-field"
               placeholder="email" 
-              // onChange={(e) => { setInputEmail(e.target.value) }}
             />
             <label className="input-label">E-mail</label>
           </div>
-          {/* <div>
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Enter your Password" />
-          </div> */}
+          
           <div className="input-container">
             <input
               type="password"

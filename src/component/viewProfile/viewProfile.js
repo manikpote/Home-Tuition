@@ -9,12 +9,8 @@ function TutorProfile() {
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get('id');
 
-  // console.log(id);
-  // const { id } = useParams();
-
   const userData = data.find(item => item.id === parseInt(id));
-  // console.log(userData);
-  // console.log(userData.first_name);
+
   return (
     <>
       <div className='profileWrapper'>

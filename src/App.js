@@ -8,10 +8,12 @@ import AboutUs from './component/aboutUs/aboutUs';
 
 import TutorsDetails from './component/tutorsDetails/tutorsDetails';
 import TutorProfile from './component/viewProfile/viewProfile';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
     <div>
+      <ScrollToTop/>
       <NavBar />
 
       <Routes>
