@@ -20,7 +20,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 2em 0;
   background-color: rgb(231, 226, 226);
 }
 
@@ -97,23 +97,18 @@ button:active{
 }
 
 .input-field {
-  /* width: 26em; */
-  /* padding: 10px; */
   border: none;
   outline: none;
   margin-bottom: 1em;
   border-bottom: 2px solid rgba(0, 0, 0, 0.4);
 }
-/* .input-field :focus{
-  border-bottom: 2px solid #fff;
-} */
+
 input::placeholder{
   color: white;
 }
 .input-field:focus ~ .input-label,
 .input-field:not(:placeholder-shown) ~ .input-label {
   top: -10px;
-  /* left: 10px; */
   font-size: 12px;
   color: black;
   padding: 0 1px;
@@ -121,6 +116,9 @@ input::placeholder{
 }
 
 @media (max-width: 400px) {
+  .screen{
+    background-color: white;
+  }
   form {
     padding: 0;
     border: none;

@@ -7,15 +7,16 @@ function Dropdown() {
   return (
     <>
       <div className='dropdown' style={{
-        height: '70vh',
+        paddingTop:'6em',
+        paddingBottom:'8em',
         backgroundColor: 'rgb(231, 226, 226)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
       }}>
         <div>
-        <p className="text-tutor">Search for a tutor!</p>
-        <DropdownMenu />
+          <p className="text-tutor">Search for a tutor!</p>
+          <DropdownMenu />
         </div>
       </div>
     </>

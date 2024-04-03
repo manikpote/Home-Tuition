@@ -7,14 +7,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid black; */
   background-color: rgb(231, 226, 226);
 }
 
 .userProfile {
   display: flex;
   width: 40em;
-  /* border: 2px solid red; */
   padding: 10px;
   margin: 3em 0;
   background-color: white;
