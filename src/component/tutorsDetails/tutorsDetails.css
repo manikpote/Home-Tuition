@@ -42,6 +42,7 @@
 }
 
 .infoContainer:hover {
+  cursor: pointer;
   transform: scale(1.02);
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
@@ -58,7 +59,9 @@
 display: flex;
 }
 .personName{
-  font-size: 20px;
+  font-size: 14px;
+  text-align: left;
+  width: 10em;
 }
 .personDetails{
   font-size: 14px;
@@ -81,4 +84,22 @@ display: flex;
   font-size: 10px;
   position: relative;
   top: 30px;
+}
+
+@media (max-width:700px){
+  .wrap{
+    background-color: #fff;
+  }
+  .wrapper{
+    width: 0;
+  }
+  .personInfo{
+    width: 0;
+  }
+  .personDetails{
+    display: none;
+  }
+  .personName{
+    width: auto;
+  }
 }

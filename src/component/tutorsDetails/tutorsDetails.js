@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; 
+import { useLocation, useNavigate } from 'react-router-dom';
 import { data } from "../../data"
 import "./tutorsDetails.css"
 import Footer from '../footer/footer';
@@ -7,7 +7,7 @@ import DropdownMenu from '../dropDown/dropdownMenu';
 
 function TutorsDetails() {
   const location = useLocation();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const grade = searchParams.get('grade');
   const subject = searchParams.get('subject');
@@ -24,7 +24,12 @@ function TutorsDetails() {
     <>
       <div className="wrap">
         <div className="wrapper">
-          <div style={{ padding: '3em' }}>
+          <div style={{
+            padding: '3em',
+            // '@media (max-width: 700px)': {
+            //   backgroundColor: 'blue',
+            // }
+          }}>
             <DropdownMenu />
           </div>
           <div>
@@ -35,7 +40,7 @@ function TutorsDetails() {
                     <div className="infoContainer" key={datas.id} onClick={() => viewProfile(datas.id)}>
                       <img className="personImage" src={datas.img} alt="Person" />
                       <div className="personInfo">
-                        <p className="personName">{datas.name}</p>
+                        <div className="personName">{datas.first_name} {datas.last_name}</div>
                         <div className="personDetails">
                           {datas.gender}, {datas.age}
                           <span>&#183;</span>
